@@ -1,48 +1,64 @@
 // set of Questions
 var Question = [
-    ["How to display 'Hello World' with JavaScript",
-        "1. document.write('Hello World');",
-        "2. document.write(Hello World);",
-        "3. document.write('Hello World')",
-        "4. document.write('Hello World')",
-        "1"],
-    ["What would you see the result of document.write(5 + 4); in a browser？",
-        "1. (5 + 4) ;",
-        "2. error ",
-        "3. 9 ",
-        "4. 20 ",
-        "3"],
-    ["Which character do you use to multiply numbers?",
-        "1. 9 ",
-        "2. % ",
-        "3. @ ",
-        "4. * ",
-        "4"],
-    ["how to declair variables in Javascript",
-        "1. der ",
-        "2. lar ",
-        "3. var ",
-        "4. ver ",
-        "3"],
-    ["How to select id by javascript?",
-        "1. selectElementBy ",
-        "2. getlementBy() ",
-        "3.getlementById() ",
-        "4. GetElementBy() ",
-        "3"],
-    ["How do you write 'Hello World' in an alert box? ",
-        "1. alert('Hello World'); ",
-        "2. prompt('Hello World')  ",
-        "3. document.innerHTML ",
-        "4. box('Hello World') ",
-        "1"],
-    ["How to call out function in javascript?",
-        "1. function myFunction (){} ",
-        "2. var function(); ",
-        "3. call = function; ",
-        "4. function(); ",
-        "4"],
+        {
+        question: "How to display 'Hello World' with JavaScript",
+        ans1: "1. document.write('Hello World');",
+        ans2: "2. document.write(Hello World);",
+        ans3: "3. document.write('Hello World')",
+        ans4: "4. document.write('Hello World')",
+        correct: "ans1"
+    },
+    {
+        question: "What would you see the result of document.write(5 + 4); in a browser？",
+        ans1: "(5 + 4) ",
+        ans2: "9",
+        ans3: "20",
+        ans4: "1')",
+        correct: "ans2"
+    },
+    {
+        question: "Which character do you use to multiply numbers?",
+        ans1: "9;",
+        ans2: "@",
+        ans3: "*",
+        ans4: "/",
+        correct: "ans3"
+    },
+    {
+        question: "Whow to declair variables in Javascript",
+        ans1: "der",
+        ans2: "lar",
+        ans3: "var",
+        ans4: "ver",
+        correct: "ans3"
+    },
+    {
+        question: "How to select id by javascript?",
+        ans1: "selectElementBy ",
+        ans2: "getlementBy()",
+        ans3: "getElmentById()",
+        ans4: "GetElementBy()",
+        correct: "ans3"
+    },
+    {
+        question: "How do you write 'Hello World' in an alert box?",
+        ans1: "alert('Hello World'); ",
+        ans2: "prompt('Hello World') ",
+        ans3: "document.innerHTML ",
+        ans4: "Gbox('Hello World')",
+        correct: "ans1"
+    },
+    {
+        question: "How to call out function in javascript?",
+        ans1: "function myFunction (){}  ",
+        ans2: "var function(); ",
+        ans3: "call = function; ",
+        ans4: "function(); ",
+        correct: "ans4"
+    },
 ];
+
+
 
 // timer function
 var secondsLeft = 50;
@@ -140,11 +156,11 @@ function display() {
 // Question diplay 
 function questionLoad() {
     display();
-    choice0.textContent = Question[currentQ][0];
-    choice1.textContent = Question[currentQ][1];
-    choice2.textContent = Question[currentQ][2];
-    choice3.textContent = Question[currentQ][3];
-    choice4.textContent = Question[currentQ][4];
+    choice0.textContent = Question[currentQ].question;
+    choice1.textContent = Question[currentQ].ans1;
+    choice2.textContent = Question[currentQ].ans2;
+    choice3.textContent = Question[currentQ].ans3;
+    choice4.textContent = Question[currentQ].ans4;
     startBtn.remove();
     startText.remove();
 }
@@ -170,15 +186,25 @@ function endScreen() {
     document.getElementById("message").innerHTML = output + "'s" + " score is" + " " + count;
 }
 
-
+// function ansCheck() {
+//     var ans = document.getElementsByName("btn");
+//     console.log(ans);
+//     for(var i = 0; i < ans.length; i++){
+//       if(ans[i].target) {
+//         console.log( ans[i].value);
+//       }
+//     }
+// }
 
 //  Answer check and Display function
 function answerCheck(event) {
-    var qAnswer = Question[currentQ][5];
-    console.log(Question[currentQ][qAnswer]);
-    console.log(event.target.innerHTML);
+    var qAnswer = Question[count].correct;
+    var ansChecker = event.target.value;
+    // Question[count].ans1
+    console.log(qAnswer);
+    console.log(ansChecker);
 
-    if (Question[currentQ][qAnswer] != event.target.innerHTML) {
+    if (ansChecker != qAnswer) {
         secondsLeft -= 5;
 
         // Print message 
