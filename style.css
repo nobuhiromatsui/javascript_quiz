@@ -14,10 +14,54 @@ body {
   color: Black;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 2em;
-  float: left;
-  padding: 30px;
+  width: 50%;
+  margin: 0 auto;
 }
 
-button {
-  size: 50px;
+/* #inputContainer{
+  color: Black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2em;
+  width: 100%;
+  margin: 0 auto;
+} */
+
+#btn {
+  height: 60px;
+  width: 700px;
+  margin: 10px;
+  background-color: lightskyblue;
+  font-size: 20px;
+}
+
+#questionHolder {
+  text-align: center;
+  margin: 30px;
+}
+
+#choice0 {
+  font-weight: 800;
+}
+
+#message {
+  margin: 50px;
+}
+
+#time {
+  margin: 50px;
+}
+
+#myText {
+  width: 800px;
+  height: 80px;
+  margin: 0px;
+}
+
+
+
+#startBtn {
+  width: 100px;
+  margin: 50px;
+  margin: 0px;
+  
 }
