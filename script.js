@@ -1,5 +1,51 @@
+// set of Questions
+var Question = [
+    ["How to display 'Hello World' with JavaScript",
+        "1. document.write('Hello World');",
+        "2. document.write(Hello World);",
+        "3. document.write('Hello World')",
+        "4. document.write('Hello World')",
+        "1"],
+    ["What would you see the result of document.write(5 + 4); in a browser？",
+        "1. (5 + 4) ;",
+        "2. error ",
+        "3. 9 ",
+        "4. 20 ",
+        "3"],
+    ["Which character do you use to multiply numbers?",
+        "1. 9 ",
+        "2. % ",
+        "3. @ ",
+        "4. * ",
+        "4"],
+    ["how to declair variables in Javascript",
+        "1. der ",
+        "2. lar ",
+        "3. var ",
+        "4. ver ",
+        "3"],
+    ["How to select id by javascript?",
+        "1. selectElementBy ",
+        "2. getlementBy() ",
+        "3.getlementById() ",
+        "4. GetElementBy() ",
+        "3"],
+    ["How do you write 'Hello World' in an alert box? ",
+        "1. alert('Hello World'); ",
+        "2. prompt('Hello World')  ",
+        "3. document.innerHTML ",
+        "4. box('Hello World') ",
+        "1"],
+    ["How to call out function in javascript?",
+        "1. function myFunction (){} ",
+        "2. var function(); ",
+        "3. call = function; ",
+        "4. function(); ",
+        "4"],
+];
+
 // timer function
-var secondsLeft = 20;
+var secondsLeft = 10;
 
 // var Counter = setTimer();
 var timeHolder = document.querySelector(".time");
@@ -17,6 +63,23 @@ function setTimer() {
             var message = document.getElementById("message");
             message.innerHTML = "Time is up!";
 
+            lastScreenCall()
+
+            // document.getElementById("questionHolder").style.display = "none";
+
+            // endbutton.innerHTML = "Check your score";
+            // document.body.appendChild(endbutton);
+
+            // endbutton.addEventListener("click", endScreen);
+            // document.getElementById("myText").style.display = "block";
+
+
+            // // reload page to restart quiz
+            // restart.innerHTML = "Start again";
+            // document.body.appendChild(restart);
+            // restart.addEventListener("click", reloadpage);
+
+
         }
     }, 1000);
 }
@@ -24,64 +87,6 @@ function setTimer() {
 
 
 
-// var Question = [
-//     {
-//         question: "How to display 'Hello World' with JavaScript",
-//         ans1: "1. document.write('Hello World');",
-//         ans2: "2. document.write(Hello World);",
-//         ans3: "3. document.write('Hello World')",
-//         ans4: "4. document.write('Hello World')",
-//         correct: "ans1"
-//     },
-//     ["What would you see the result of document.write(5 + 4); in a browser？",
-//         "1. 5 + 4);",
-//         "2. error",
-//         "3. 9",
-//         "4. 20",
-//         "3"],
-//     ["Which character do you use to multiply numbers?",
-//         "1. 9",
-//         "2. %",
-//         "3. @",
-//         "4. *",
-//         "4"],
-//     ["Which character do you use to divide numbers?",
-//         "1. =",
-//         "2. /",
-//         "3. $",
-//         "4. %",
-//         "2"],
-// ];
-
-// Question[count][correct]; Question[count].ans1;
-
-
-var Question = [
-    ["How to display 'Hello World' with JavaScript",
-        "1. document.write('Hello World');",
-        "2. document.write(Hello World);",
-        "3. document.write('Hello World')",
-        "4. document.write('Hello World')",
-        "1"],
-    ["What would you see the result of document.write(5 + 4); in a browser？",
-        "1. 5 + 4);",
-        "2. error",
-        "3. 9",
-        "4. 20",
-        "3"],
-    ["Which character do you use to multiply numbers?",
-        "1. 9",
-        "2. %",
-        "3. @",
-        "4. *",
-        "4"],
-    ["Which character do you use to divide numbers?",
-        "1. =",
-        "2. /",
-        "3. $",
-        "4. %",
-        "2"],
-];
 // Count correct answer
 var count = 0;
 
@@ -99,43 +104,46 @@ var buttons2 = document.getElementById("answer2");
 var buttons3 = document.getElementById("answer3");
 var buttons4 = document.getElementById("answer4");
 
-// var timer = setTimer();
+
+// Buttons variables
+var startBtn = document.getElementById("startBtn");
+var startText = document.getElementById("startText");
+var endbutton = document.createElement("button");
+var restart = document.createElement("button");
+
+// Answer option Button Event
+buttons1.addEventListener("click", answerCheck);
+buttons2.addEventListener("click", answerCheck);
+buttons3.addEventListener("click", answerCheck);
+buttons4.addEventListener("click", answerCheck);
+
+
+var event = startBtn.addEventListener("click", questionLoad);
+var event = startBtn.addEventListener("click", setTimer);
+
+// Start Button Event
+startBtn.addEventListener("click", questionLoad);
+
+
+
 
 // Hide Answers 
-document.getElementById("answer1").style.display = "none";
-document.getElementById("answer2").style.display = "none";
-document.getElementById("answer3").style.display = "none";
-document.getElementById("answer4").style.display = "none";
+document.getElementById("questionHolder").style.display = "none";
 
+// Last input display setting
 document.getElementById("myText").style.display = "none";
 
 
+// if ( currentQ = 6 ) {
+//     lastScreenCall();
+// }
 
 
 // Display Answers
 function display() {
-    document.getElementById("answer1").style.display = "block";
-    document.getElementById("answer2").style.display = "block";
-    document.getElementById("answer3").style.display = "block";
-    document.getElementById("answer4").style.display = "block";
+    document.getElementById("questionHolder").style.display = "block";
 }
 
-
-
-
-var startBtn = document.getElementById("startBtn");
-var startText = document.getElementById("startText");
-var end = document.getElementById("wrapper");
-var endbutton = document.createElement("button");
-
-
-// function outPut() {
-//     document.getElementById("myText").style.display = "block";
-//     var output = document.querySelectorAll("input").value;
-//     document.getElementById("message").innerHTML = output;
-// }
-
-// setTimer();
 
 
 // Question diplay 
@@ -154,27 +162,15 @@ function questionLoad() {
 
 // Current Question position
 function loadNextQuestion() {
-    if (currentQ < 3) {
+    if (currentQ < 7) {
         currentQ++;
         questionLoad();
         console.log(currentQ);
     }
-    else {
-        console.log("last question");
-        var message = document.getElementById("message");
-        message.innerHTML = "your score is" + " " + count;
-
-
-        endbutton.innerHTML = "click here";
-        document.body.appendChild(endbutton);
-
-        endbutton.addEventListener("click", endScreen);
-        document.getElementById("myText").style.display = "block";
-
-
-    }
 }
 
+
+// Dispaly score output
 function endScreen() {
     var output = document.getElementById("myText").value;
     document.getElementById("message").innerHTML = output + "'s" + " score is" + " " + count;
@@ -182,51 +178,53 @@ function endScreen() {
 
 
 
-
-//  Answer check and Display
+//  Answer check and Display function
 function answerCheck(event) {
     var qAnswer = Question[currentQ][5];
     console.log(Question[currentQ][qAnswer]);
     console.log(event.target.innerHTML);
 
-
-
-    if ( Question[currentQ][qAnswer] != event.target.innerHTML ){
+    if (Question[currentQ][qAnswer] != event.target.innerHTML) {
         secondsLeft -= 5;
+
+        // Print message 
+        var message = document.getElementById("message");
+        message.textContent = "Your choice was wrong!";
+
+        //count Correct answers
+
+    }
+    else {
+        // Print message       
+        var message = document.getElementById("message");
+        message.innerHTML = "Your answer was correct!";
+        count++;
     }
 
     loadNextQuestion();
+}
 
-    // if (data == qAnswer) {
-    //     console.log(data);
-    //     // alert("Corect");
-    //     var message = document.getElementById("message");
-    //     message.innerHTML = "CORRECT!";
-    //     count++;
-    //     currentNum();
-    //     console.log("Answer Check");
-    // }
-    // else {
-    //     // alert("inCorect");
-    //     var message = document.getElementById("message");
-    //     message.textContent = "INCORRECT!";
-    //     secondsLeft -= 20;
-    //     currentNum();
-    // }
+
+// Page relaod function
+function reloadpage() {
+    location.reload(true);
+}
+
+function lastScreenCall() {
+    document.getElementById("questionHolder").style.display = "none";
+
+    endbutton.innerHTML = "Check your score";
+    document.body.appendChild(endbutton);
+
+    endbutton.addEventListener("click", endScreen);
+    document.getElementById("myText").style.display = "block";
+
+
+    // reload page to restart quiz
+    restart.innerHTML = "Start again";
+    document.body.appendChild(restart);
+    restart.addEventListener("click", reloadpage);
 }
 
 
 
-// Answer option Button Event
-buttons1.addEventListener("click", answerCheck);
-buttons2.addEventListener("click", answerCheck);
-buttons3.addEventListener("click", answerCheck);
-buttons4.addEventListener("click", answerCheck);
-
-
-
-// Start Button Event
-startBtn.addEventListener("click", questionLoad);
-
-var event = startBtn.addEventListener("click", questionLoad);
-var event = startBtn.addEventListener("click", setTimer);

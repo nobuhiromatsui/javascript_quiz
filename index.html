@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Java Quize</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div id="wrapper">
-        
-        
 
-        <div id = "choice0" class="question"></div>
-        <div id = "answer1" class="answer">    <button id="btn" value= "1"><span id="choice1"></span></button> </div>
-        <div id = "answer2" class="answer">   <button id="btn" value= "2"><span id="choice2"></span></button> </div>
-        <div id = "answer3" class="answer">   <button id="btn" value= "3"><span id="choice3"></span></button> </div>
-        <div id = "answer4" class="answer">    <button id="btn" value= "4"><span id="choice4"></span></button> </div>
-        
 
-        
-        <div id = "message" class ="message"></div>
-        
-        
-        <h1 id="startText" value= ""><span id="">Javascript Quiz</span></h1>
-        <button id="startBtn" value= ""><span id="">START</span></button>
-         <input type="text" id="myText" value="Enter your Name">
-        <div id = "time" class ="time"></div>
+        <div id="questionHolder" class="questionHolder">
+            <div id="choice0" class="question"></div>
+            <div id="answer1" class="answer"> <button id="btn" value="1"><span id="choice1"></span></button> </div>
+            <div id="answer2" class="answer"> <button id="btn" value="2"><span id="choice2"></span></button> </div>
+            <div id="answer3" class="answer"> <button id="btn" value="3"><span id="choice3"></span></button> </div>
+            <div id="answer4" class="answer"> <button id="btn" value="4"><span id="choice4"></span></button> </div>
+        </div>
+
+
+        <div id="message" class="message"></div>
+
+
+        <h1 id="startText" value=""><span id="">Javascript Quiz</span></h1>
+        <button id="startBtn" value=""><span id="">START</span></button>
+        <div id="inputScreen" class="inputScreen">
+            <input type="text" id="myText" value="Enter your Name">
+        </div>
+        <div id="time" class="time"></div>
     </div>
-    <script src = "questions.js"></script>
-    <script src = "script.js"></script>
-    
+    <script src="script.js"></script>
+
 </body>
+
 </html>
-
-
